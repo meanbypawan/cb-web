@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            .container{
+                height: 600px;
+                border: 1px solid black;
+            }
+            .header{
+              height: 100px;
+              border: 1px solid black;
+              background-color: orange;
+              padding: 10px;
+            }
+            .navigation{
+                height: 70px;
+                border: 1px solid black;
+                background-color: blue;
+
+            }
+            .content{
+                height: 330px;
+                background-color: white;
+                border: 1px solid black;
+                padding-top: 15px;
+            }
+            .footer{
+                height: 100px;
+                width: 100%;
+                background-color: orange;
+                border: 1px solid black;
+                padding-left: 10%;
+                padding-right: 10%;
+                padding-top:10px;
+            }
+            .content div:nth-child(1), .content div:nth-child(3){
+               height: 300px;
+               width: 20%;
+               background-color: red;
+               float:left;
+            }
+            .content div:nth-child(even){
+                height: 300px;
+                width: 50%;
+                background-color: orange;
+                float: left;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            .footer div{
+                width: 20%;
+                height: 80px;
+                border: 1px solid black;
+                float: left;
+            }
+            .footer div:nth-child(2){
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+            .mid-panel{
+                position: relative;
+            }
+            .mid-panel span{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>It is Header..</h1>
+            </div>
+            <div class="navigation"></div>
+            <div class="content">
+                <div class="left-panel">Left Panel</div>
+                <div class="mid-panel"><span>Mid panel</span></div>
+                <div class="right-panel">Right-panel</div>
+            </div>
+            <div class="footer">
+                <div class="left-section"></div>
+                <div class="mid-section"></div>
+                <div class="right-section"></div>
+            </div>
+        </div>
+    </body>
+</html>
