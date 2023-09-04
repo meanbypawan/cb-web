@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            button{
+                width: 70px;
+                height: 30px;
+                background-color: orange;
+                transition: all 5s ease-out;
+            }
+
+            button:hover{
+              background-color: mediumseagreen;
+              width: 150px;
+              height: 60px;
+            }
+            .first-div{
+                width: 200px;
+                border: 2px solid black;
+                margin-top: 30px;
+                transition:  all 5s ease-in;
+            }
+            .first-div:hover{
+                transform: rotate(360deg);
+                width: 150px;
+                height: 150px;
+            }
+            img{
+                margin-top: 20px;
+                transition: all 1s ease-in;
+            }
+            img:hover{
+                transform: scale(1.2) rotate(10deg);
+            }
+            .image-container{
+                border: 1px solid black;
+                width: 200px;
+                overflow: hidden;
+            }
+            .second-div{
+                width: 100px;
+                height: 100px;
+                transition: all 2s ease-in;
+                background-color: blue;
+            }
+            .second-div:hover{
+               transform: translatey(200px)
+            }
+            .second-container{
+                width: 500px;
+                height: 500px;
+            }
+            .second-div{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                width: 100px;
+                height: 100px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <button>Checkout</button>
+        <div class="first-div">
+            <img src="images/flower.avif" width="200px" height="200px"/>
+        </div>
+
+        <div class="image-container">
+          <img src="images/flower.avif" width="200px" height="200px"/>
+        </div>
+        
+        <div class="second-container">
+        <div class="second-div"></div>
+        </div>
+
+    </body>
+</html>
