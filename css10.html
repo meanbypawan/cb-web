@@ -1,0 +1,54 @@
+<html>
+    
+        <!--
+            position
+             a. static
+             b. relative :- it relative to its actual position
+             c. absolute :- It will positioned according to parents
+             d. fixed
+            
+        -->
+    <style>
+        .container{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        .box{
+            width: 50px;
+            height: 50px;
+            border:1px solid black;
+            display: inline-block;
+        }
+        .third{
+            position: relative;
+            left:30px;
+            background-color: red;
+            top:30px;
+        }
+        .sixth{
+            background-color: blue;
+            position: absolute;
+            left: 30px;
+            top: 30px;
+        }
+        .tenth{
+            position: fixed;
+            bottom: 10%;
+            right: 5%;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box third">3</div>
+            <div class="box">4</div>
+            <div class="box">5</div>
+            <div class="box sixth">6</div>
+            <div class="box">7</div>
+            <div class="box">8</div>
+            <div class="box">9</div>
+            <div class="box tenth">10</div>
+        </div>
+    </body>
+</html>
