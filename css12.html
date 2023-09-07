@@ -1,0 +1,67 @@
+<html>
+    <!--
+        Psuedo element selector
+        a. ::first-line
+        b. ::first-letter
+        c. ::marker
+        d. ::after
+        e. ::before
+    -->
+    <head>
+        <style>
+          .first-para::first-line{
+            color:red;
+            font-size: 20px;
+            letter-spacing: 2px;
+            font-family: Arial;
+            word-spacing: 20px;
+          }
+          .second-para::first-letter{
+            font-size: 50px;
+            color:blue;
+          }
+          ul li::marker{
+            color:red;
+            font-size: 30px;
+          }
+          ol li::marker{
+            color: blue;
+            font-size: 20px;
+          }
+          .third-para::before{
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+            top:13px;
+          }
+          
+          .third-para::first-letter{
+            font-size: 30px;
+            color: mediumspringgreen;
+            margin-left: 10px;
+          }
+          .third-para::after{
+            content: "#";
+            font-size: 50px;
+            color: red;
+          }
+        </style>
+    </head>
+    <body>
+        <p class="first-para">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias commodi quis laudantium, ipsa corrupti minus quaerat consequuntur dolorum tenetur. Cumque ex praesentium totam neque corporis fugit quia distinctio molestiae itaque aliquid dolores consequuntur in error eveniet odio, necessitatibus temporibus ipsum explicabo architecto? Nobis debitis odit pariatur. Eveniet optio obcaecati quibusdam quis adipisci maxime vitae porro voluptate sed. Dolore ut asperiores culpa repellat minus eum laboriosam, esse fugiat error quis vitae saepe soluta officia consequuntur nesciunt sint veritatis quod delectus. Sint quos vel velit distinctio! Quo consequuntur sit incidunt quasi hic. Sed, explicabo veniam impedit eligendi sequi dicta consequatur iure debitis.</p>
+        <p class="second-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia in iste quae dolorum nobis. Unde nam cupiditate explicabo, ipsum veniam eius ducimus corporis dolorum dolor repellat accusamus? Odio, voluptatibus nisi! Labore magnam voluptates, error quidem molestias, commodi porro libero quaerat fugit fuga tenetur beatae, illum placeat quae et? Enim quis iusto tempora, delectus at illum quas vitae, ex unde, saepe vero repellendus voluptatem voluptatum! Fuga similique facilis, totam provident dolore voluptatem dolor debitis, eum aliquid tenetur laboriosam unde? Aperiam optio natus rem ipsum dolore perferendis inventore fuga deleniti veritatis provident, veniam fugit? Rem vitae dignissimos provident amet sequi? Ex nisi consequuntur numquam voluptates sequi dicta provident hic facilis nobis, alias laboriosam assumenda neque velit tempora quo tempore, dolore possimus! Dignissimos enim corporis odio exercitationem facilis, quam nam asperiores alias quo veniam aspernatur eveniet temporibus, rerum quidem natus perspiciatis doloremque perferendis dolor possimus labore ut a sint aliquid. Quas cupiditate illo sint minima officiis velit quidem, ipsum delectus adipisci libero reprehenderit consectetur fugiat pariatur eos dolores dicta numquam deserunt neque facilis error accusantium nemo! Modi autem possimus, placeat distinctio voluptatibus corporis earum excepturi accusantium veniam aspernatur, dolore tempora praesentium commodi in. Temporibus placeat corporis cum atque pariatur necessitatibus aliquid illum quasi excepturi? Porro provident, necessitatibus consectetur exercitationem hic deleniti. Libero accusamus at quod est nihil, sit quos obcaecati sapiente cumque reiciendis exercitationem officiis non vero animi odit enim et dicta numquam molestiae dolorem? Voluptatum velit omnis dicta nihil cumque debitis et sapiente totam, soluta quo officia saepe quod quibusdam harum nisi labore itaque? Id ullam fuga magnam! Sint cupiditate sapiente totam tenetur nobis! Hic tempora magnam cumque atque incidunt recusandae dolores non adipisci quia consequatur. Distinctio impedit nihil cupiditate odio aliquam aut! Quisquam impedit deleniti officiis perspiciatis nesciunt debitis facere, asperiores quod tempora, excepturi laudantium quis laboriosam aliquam facilis esse veniam?</p>
+        <p class="third-para" style="position:relative;">Third ipsum dolor, sit amet consectetur adipisicing elit. Mollitia ea sed atque explicabo, labore repellat, quidem qui provident saepe expedita hic quis aliquid minus? Illo quas illum ullam dignissimos quia et sunt, rerum ex, corporis culpa aperiam minus, impedit deserunt? Repellat laborum obcaecati laudantium eos nemo voluptates illo excepturi minus?</p>
+        <ul type="square">
+            <li>Item - 1</li>
+            <li>Item - 2</li>
+            <li>Item - 3</li>
+        </ul>
+        <ol type="I">
+            <li>Item - 1</li>
+            <li>Item - 2</li>
+            <li>Item - 3</li>
+        </ol>
+    </body>
+</html>

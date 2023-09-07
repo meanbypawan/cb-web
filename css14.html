@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            .first-div{
+                width: 100px;
+                height: 100px;
+                background-color: greenyellow;
+                animation: color-animation;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+                animation-delay: 5s;
+            }
+
+            @keyframes color-animation {
+                from{
+                   background-color: greenyellow;
+                }
+                to{
+                 background-color: red;
+                }
+            }
+
+            .second-div{
+                margin-top: 20px;
+                animation: motion-animation;
+                animation-duration: 5s;
+                animation-iteration-count: 2;
+            }
+
+            @keyframes motion-animation {
+                0%{
+                    background-color: red;
+                }
+
+                25%{
+                    background-color: yellow;
+                }
+
+                50%{
+                    background-color: orange;
+                }
+
+                75%{
+                    background-color: blue;
+                }
+
+                100%{
+                    background-color: black;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="first-div"></div>
+        <div class="second-div first-div"></div>
+    </body>
+</html>
