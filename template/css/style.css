@@ -62,7 +62,102 @@
     /* background-color: blue; */
     display: block;
     width: 90px;
+    margin-left: 0;
 }
 .float-right ul li:hover ul{
     display: block;
+}
+.logo-search-bar{
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo, .customer-service-contact{
+    width: 20%;
+    height: 70px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.search-bar{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-bar input[type="text"]{
+   height: 40px;
+   width:300px;
+   padding: 5px;
+   border: 0.5px solid rgb(203, 198, 198);
+}
+.search-bar i{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFD333;
+    border: 1px solid black;
+    margin-left: -40px;
+    border: 0.5px solid rgb(203, 198, 198);
+}
+.flex-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.flex-container div:nth-child(1){
+    width: 120px;
+    height: 50px;
+    background-color: #3D464D;
+    color:#FFD333;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-container div:nth-child(2){
+    width: 120px;
+    height: 50px;
+    background-color: #FFD333;
+    color:#3D464D;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    row-gap: 5px;
+  
+}
+.flex-column span:nth-child(1){
+    color:#6C7582;
+    font-size: 18px;
+    font-weight: 500;
+}
+.flex-column span:nth-child(2){
+    font-size: 25px;
+}
+nav{
+    background-color: #3D464D;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+nav div:nth-child(odd){
+   width: 20%;
+   height: 70px;
+   border: 1px solid red;
+}
+nav div:nth-child(even){
+    width: 40%;
+    height: 70px;
+    border: 1px solid blue;
 }
