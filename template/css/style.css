@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: #F5F5F5;
+}
 .main-wrapper{
     height: 100vh;
 }
@@ -245,6 +248,7 @@ nav div:nth-child(even){
 .navigation-menu ul li:nth-child(4) ul li:hover{
     background-color: white;
     color: black;
+    
 }
 
 .favourite-and-cart{
@@ -314,6 +318,7 @@ nav div:nth-child(even){
     height: 40px;
     background: transparent;
     border: 1px solid white;
+    color:white;
 }
 .banner-left button:hover{
     background-color: white;
@@ -364,3 +369,121 @@ nav div:nth-child(even){
     margin-top: 120px;
     border: none;
 }
+.banner-left h1{
+    animation: slide-down-text;
+    animation-duration: 1.5s;
+}
+@keyframes slide-down-text {
+    from{
+        transform: translateY(-200%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+.banner-left button{
+    animation: slide-up-button;
+    animation-duration: 1.5s;
+}
+@keyframes slide-up-button {
+   from{
+     transform: translateY(200%);
+   }   
+   to{
+    transform: translateY(0%);
+   }
+}
+.banner-left p{
+    animation: scale-text;
+    animation-duration: 0.3s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+}
+@keyframes scale-text{
+    from{
+        transform: scale(1);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+.featured-product{
+    padding: 0 50px;
+    margin-top: 20px;
+}
+
+.row{
+    display: flex;
+}
+.box{
+    width: 23%;
+    height: 400px;
+    background-color: white;
+    position: relative;
+    overflow: hidden;
+}
+.box img{
+    width: 100%;
+    height: 280px;
+    transition: all 0.5s ease-in-out;
+}
+.box:hover img{
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+.box-content{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+.rating{
+    color: #FFD333;
+}
+
+.option{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.option span{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 5px;
+}
+.box:hover .option{
+  display: block;
+}
+.option span:hover{
+    background-color: #3D464D;
+    color: #FFD333;
+}
+.box:hover .option span:nth-child(1){
+    animation: span-animation;
+    animation-duration: 0.5s;
+}
+.box:hover .option span:nth-child(2){
+    animation: span-animation;
+    animation-duration: 0.6s;
+}
+.box:hover .option span:nth-child(3){
+    animation: span-animation;
+    animation-duration: 0.7s;
+}
+.box:hover .option span:nth-child(4){
+    animation: span-animation;
+    animation-duration: 0.8s;
+}
+@keyframes span-animation {
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: translateY(0%);
+    }
+}
+
