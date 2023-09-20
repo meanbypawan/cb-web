@@ -15,6 +15,62 @@
       .banner img{
         opacity: 0.5;
       }
+      .banner-paragraph{
+        width: 50%;
+      }
+      @media only screen and (max-width:767px) {
+         .banner-paragraph{
+          color: red !important;
+          width: 100%;
+          text-align: center !important;
+         }
+         .box-paragraph-alignment{
+          text-align: center;
+         }
+         .section-3-heading{
+          text-align: center !important;
+         }
+      }
+      .banner button:hover{
+        color:black !important;
+      }
+      .banner button::after{
+        content: "";
+        width: 0px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: white;
+        transition: all 0.5s ease-in-out;
+        z-index: -1 !important;
+      }
+      .banner button:hover:after{
+        width: 100%;
+      }
+      .box span{
+        position: absolute;
+        bottom: 15px;
+      }
+      .box span::after{
+        content: "";
+        position: absolute;
+        top: 25px;
+        height: 2px;
+        right: 0;
+        width: 85px;
+        background-color: black;
+        transition: all 0.5s ease-in-out;
+      }
+      .box span:hover:after{
+        width: 0px;
+      }
+      box-paragraph-alignment{
+        text-align: left;
+      }
+      .section-3-heading{
+        text-align: end;
+      }
     </style>
 </head>
 <body>
@@ -22,9 +78,53 @@
         <div class="banner position-relative d-flex flex-column justify-content-center align-items-md-start align-items-center">
             <img class="w-100 h-100 position-absolute" src="https://mobirise.com/extensions/personam4/assets/images/mbr.jpg"/>
             <p class="text-white display-3 ml-5" style="z-index:1;">Carft Shop</p>
-            <p class="text-white w-50 d-flex justify-content-center justify-content-md-start ml-5" style="z-index:1;font-size:20px; font-weight:500;">Lorem ipsum dolor sitr risus. Nulla elementum suscipit odio</p>
-            <button class="ml-5 btn bg-transparent border border-white text-white" style="z-index:1; width:200px;height:50px;">VIEW MORE</button>
+            <p class="banner-paragraph text-white d-flex justify-content-center justify-content-md-start ml-5" style="z-index:1;font-size:20px; font-weight:500;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras pulvinar efficitur risus. Nulla elementum suscipit odio</p>
+            <button class="ml-5 position-relative btn bg-transparent border border-white text-white" style="z-index:1; width:200px;height:50px;">VIEW MORE</button>
         </div>
+    </section>
+    <section>
+      <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-12 mt-2">
+            <div class="box d-flex flex-column align-items-md-start align-items-center position-relative pt-4 pl-4" style="height:350px; background-color:#D7EDD8">
+              <h2 style="color:#3D626C;">Style</h2>
+              <p class="mt-3 box-paragraph-alignment" style="font-size: 18px; font-weight:300px; color:#3D626C;">Lorem ipsum dolor sit amet, consectetur adipiscing elitdo eiusmod temporeum dicant partem scripserit</p>
+              <span style="color:#3D626C;">VIEW MORE</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 mt-2">
+            <div class="box d-flex flex-column align-items-md-start align-items-center position-relative pt-4 pl-4" style="height:350px; background-color:#FFF3F3">
+              <h2 style="color:#3D626C;">Fashion</h2>
+              <p class="mt-3 box-paragraph-alignment" style="font-size: 18px; font-weight:300px; color:#3D626C;">Lorem ipsum dolor sit amet, consectetur adipiscing elitdo eiusmod temporeum dicant partem scripserit</p>
+              <span style="color:#3D626C;">VIEW MORE</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 mt-2">
+            <div class="box d-flex flex-column align-items-md-start align-items-center position-relative pt-4 pl-4" style="height:350px; background-color:#EAF4F8">
+              <h2 style="color:#3D626C;">Brand</h2>
+              <p class="mt-3 box-paragraph-alignment" style="font-size: 18px; font-weight:300px; color:#3D626C;">Lorem ipsum dolor sit amet, consectetur adipiscing elitdo eiusmod temporeum dicant partem scripserit</p>
+              <span style="color:#3D626C;">VIEW MORE</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-12 mt-2">
+            <div class="box d-flex flex-column align-items-md-start align-items-center position-relative pt-4 pl-4" style="height:350px; background-color:#FFF3F3">
+              <h2 style="color:#3D626C;">Design</h2>
+              <p class="mt-3 box-paragraph-alignment" style="font-size: 18px; font-weight:300px; color:#3D626C;">Lorem ipsum dolor sit amet, consectetur adipiscing elitdo eiusmod temporeum dicant partem scripserit</p>
+              <span style="color:#3D626C;">VIEW MORE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container-fluid mt-3">
+        <div class="row">
+          <div class="section-3-heading col-md-6 border border-danger d-flex  align-items-center" style="height:250px;font-size:55px;">A new way to create design for you</div>
+          <div class="col-md-6">
+            <p class=" d-flex  align-items-center"  style="height:250px; font-size:20px; line-height:1.5;">Lorem ipsum dolor sit amet, consectetur adipiscing elitdo eiusmod temporeum dicant partem scripserit. Lorem ipsum dolor sit amet, consec tetur adipiscing elit adipiscing elitdo.</p>
+          </div>
+        </div>
+      </div>
     </section>
 </body>
 </html>
