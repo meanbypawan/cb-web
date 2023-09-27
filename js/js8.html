@@ -1,0 +1,29 @@
+<script>
+    /*
+      Increment/Decrement
+       ++ /     --
+       
+       a. Pre-increment  : ++x
+           Pre-increment first increment the value by one then assign
+      
+       b. post-increment : x++
+           First assign the value then increment by one
+    
+     */
+
+     var a = 10;
+     //var x = ++a > 10;
+     var x = a++ > 10; // false
+     document.write("x : "+x+" a : "+a);
+     
+     /*
+        var x = ++a > 10;
+        JE :-  a = a + 1
+               x = a > 10
+     */
+   
+     var x,y=5;
+     x = ++y + y++ + ++y;
+     //    6 + 6   + 8
+     document.write("x : "+x+" y : "+y);
+</script>

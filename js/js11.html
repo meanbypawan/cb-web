@@ -1,0 +1,24 @@
+<script>
+    /*
+      Logical Operator
+        &&, ||
+
+      To Join the Mulitple condition  
+    
+       (a > b)      (c<d)       (a>b) && (c<d)   (a>b) || (c<d)
+         true       false           false           true
+         false      true            false           true
+         true       true            true            true
+         false      false           false           false
+      */
+
+      var a=10,b=20,c=30,d=40;
+
+      x = (a>b) && (++c<d) || (++a<d);
+      
+      document.write("<br>a : "+a);
+      document.write("<br>b : "+b);
+      document.write("<br>c : "+c); // 30
+      document.write("<br>d : "+d);
+      document.write("<br>x : "+x); // false
+</script>

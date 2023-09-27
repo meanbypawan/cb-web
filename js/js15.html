@@ -1,0 +1,28 @@
+<script>
+    /*
+      Write a program to input basic salary of an employee and calculate its Gross salary according to following:
+      Basic Salary >= 10000 : HRA=20%,  TA =10% DA=5%
+      otherwise HRA=10%, TA=5%
+
+      Good Developer
+        a.DRY (Do not repeat yourself)
+        b.KISS (Keep it simple and short)
+    */
+    var bs  = prompt("Enter Basic Salary") * 1;
+    var hra,ta,da=0;
+    if(bs >= 10000){
+       hra = (bs*20)/100;
+       ta = (bs*10)/100;
+       da = (bs*5)/100;
+       
+    }
+    else{
+        hra = (bs*10)/100;
+        ta = (bs*5)/100;
+    }
+    var gs = bs + hra + ta + da;
+    document.write("<br>HRA : "+hra);
+    document.write("<br>TA : "+ta);
+    da && document.write("<br>DA : "+da);
+    document.write("<br>Gs : "+gs);
+</script>
