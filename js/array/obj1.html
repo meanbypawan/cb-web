@@ -1,0 +1,31 @@
+<script>
+    /*
+      Bank Customer
+        a. Customer is object
+        properites :- (id,cname,mobile,age,address)
+        
+      c++/Java 
+        class Customer{
+            int id;
+            String cname;
+            int age;
+            String address;
+        }  
+
+        {} -- Object
+    */
+    var customerId = 5000;
+    var customerName = "XYZ";
+    var mobile = 9009111222;
+    var age = 21;
+    var address = "Indore, MP";
+
+    var customer = {id: customerId, cname: customerName, mobile: mobile, age: age, address: address};
+    
+    //document.write(customer.id+"  "+customer.cname+" "+customer.mobile+"  "+customer.age+" "+customer.address);
+    //document.write(customer['id']+"  "+customer['cname']+" "+customer['mobile']+"  "+customer['age']+" "+customer['address']);
+    
+    for(var property in customer){
+        document.write("<br>"+customer[property]);
+    }
+</script>

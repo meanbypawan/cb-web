@@ -1,0 +1,19 @@
+<script>
+    /*
+       customer =  object(2000); // customer = 2000
+                                 // customerKiCopy = 2000
+
+       {...obj} , [...arr] := Spread Operator                          
+
+    */
+    
+    var customer = {id:100,cname:"ABC"};
+    var customerKiCopy = {...customer};
+    delete customer.cname;
+    document.write(customerKiCopy.id+"  "+customerKiCopy.cname);
+
+    var arr = [10,20,30];
+
+    var arrCopy  = [...arr];
+    document.write(arrCopy);
+</script>

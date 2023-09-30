@@ -1,0 +1,33 @@
+<script>
+    /*
+      2-d :- It is collection of 1-d array
+    */
+    var arr = [
+      [10,20,30], // 0
+      [40,50,60,89,93], // 1
+      [70,80,90,12]  // 2
+    ];
+
+    for(var row of arr){
+        for(var element of row){
+            document.writeln(element);
+        }
+        document.write("<br>");
+    }
+    /*
+    for(var rowIndex in arr){
+        for(var colIndex in arr[rowIndex]){
+            document.writeln(arr[rowIndex][colIndex]);
+        }
+        document.write("<br>");
+    }
+    */
+    /*
+    for(var r=0; r<arr.length; r++){
+        for(var c=0; c<arr[r].length; c++){
+            document.writeln(arr[r][c]);
+        }
+        document.write("<br>");
+    }
+    */
+</script>
