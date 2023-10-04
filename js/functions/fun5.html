@@ -1,0 +1,28 @@
+<script>
+    var x = function(){
+        document.write("Executed.....");
+    };
+    
+    x();
+
+
+    var p = 20;
+    var q = "hello";
+    
+    function test(a,b,c){
+       /*
+         a = 20
+         b = 10
+         c = function(){}
+       */
+       document.write("<br>Inside test");
+       document.write("<br> a : "+a);
+       document.write("<br> b : "+b);
+       //document.write("<br> c : "+c);
+       c();
+    }
+
+    test(20,10,function(){
+        document.write("<br>Wow callback.....");
+    });
+</script>
