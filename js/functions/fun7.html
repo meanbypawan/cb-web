@@ -1,0 +1,24 @@
+<script>
+    var a = 20;
+    var b = 10;
+    var c = a + b;
+    var x = 50;
+    function f1(){
+        console.log("Inside f1 a : "+a+" b : "+b);
+        var x = 100;
+        console.log("x : "+x);
+        return x;
+    }
+    function f2(){
+        console.log("Inside f2");
+        var y = 100;
+        console.log("x : "+y);
+        
+    }
+    console.log("Addition  :"+c);
+    f2();
+    var aaa = f1();
+    console.log("Addition  :"+c +" x : "+x);
+
+    console.log("Script End...");
+</script>

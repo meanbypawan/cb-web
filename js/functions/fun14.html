@@ -1,0 +1,26 @@
+<script>
+    /*
+      Arithmatic
+        properties : a,b
+        behaviours : add(),mul(),sub()
+    */
+
+    function Arithmetic(x,y){
+      this.a = x;
+      this.b = y;
+      this.add = function(){
+        console.log("Addition : "+(this.a + this.b));
+      }
+      this.sub = function(){
+        console.log("Subtraction : "+(this.a - this.b));
+      }
+      this.mult = function(){
+        console.log("Multiplication : "+(this.a * this.b));
+      }
+    }
+
+    var obj = new Arithmetic(20,10); // obj :- a:20, b:10
+    obj.add();
+    obj.sub();
+    obj.mult();
+</script>

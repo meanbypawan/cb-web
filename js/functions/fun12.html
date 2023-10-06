@@ -1,0 +1,25 @@
+<script>
+    /*
+      customer
+        properties :- id,cname,age,mobile
+        behavoiurs:--deposite(), balanceEnquiry(),wittdrawal()
+    */
+
+    function Customer(id,cname,age,mobile,bal){
+        this.id = id;
+        this.cname = cname;
+        this.age = age;
+        this.mobile = mobile;
+        this.bal = bal;
+        
+        this.balanceEnquiry = function(){
+            console.log("Current Balance : "+this.bal);
+        }
+    }
+
+    var obj = new Customer(100,"Rahil",23,9009111222,45000); // obj-- id:100,cname:'Rahil',age:23,mobile:90911
+    obj.balanceEnquiry();
+
+    var obj2 = new Customer(101,"Sahil",25,9009333333,65000);
+    obj2.balanceEnquiry();
+</script>
