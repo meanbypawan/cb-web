@@ -1,0 +1,27 @@
+<script>
+    const roomCleaning = (callback)=>{
+        setTimeout(()=>{
+            console.log("Room Cleaned....");
+            callback();
+        },4000);
+    }
+
+    const removingGarbage = (callback)=>{
+       setTimeout(()=>{
+        console.log("Garbage Removed.....");
+        callback();
+       },5000);
+    }
+
+    const gotIceCream = ()=>{
+        console.log("Finally I Got A Ice-cream..");
+    }
+
+    removingGarbage(()=>{
+        roomCleaning(()=>{
+            gotIceCream();
+        });
+    });
+    
+    
+</script>

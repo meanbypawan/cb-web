@@ -1,0 +1,29 @@
+<script>
+    /*
+      Error Callback :- 
+        A callback function whose first argument is error
+      
+      throw new Error();  
+    */
+
+    function f1(a,b,callback){
+      if(typeof(a) != "number" || typeof(b)!= "number")
+        callback(new Error("Input is not integer"));
+      else{
+        var result = a + b;
+        document.write("<br>Addition : "+result);
+        callback(null,result);
+      }
+    }
+
+    f1(20,"11",function(err,result){
+        if(err)
+          console.error(err);
+        else{  
+         if(result%2==0)
+           document.write("<br> Even");
+         else
+          document.write("<br>Odd");
+        }    
+    });
+</script>

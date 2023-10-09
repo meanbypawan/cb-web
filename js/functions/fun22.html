@@ -1,0 +1,21 @@
+<script>
+  /*
+    Closure :- 
+      
+  */
+
+  function Outer(){
+    let x = 100;
+    console.log("Inside Outer : x : "+x);
+    return function Inner(){
+        console.log("Inside Inner  : x : "+x);
+        
+    };
+  }
+
+  let Inner = Outer();
+  /*
+     1000 line of code
+  */
+  Inner();
+</script>

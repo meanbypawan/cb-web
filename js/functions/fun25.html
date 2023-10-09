@@ -1,0 +1,12 @@
+<script>
+  function f1(a){
+    console.log("Inside f1 : a : "+a);
+    return function f2(b){
+       console.log("Inside f2 a : "+a+"  b : "+b); 
+       return function f3(c){
+         console.log("Inside f3 a : "+a+" b : "+b+" c : "+c);
+       }
+    }
+  }
+ f1(10)(20)(30); // Javascript curring
+</script>

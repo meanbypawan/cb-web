@@ -1,0 +1,28 @@
+<script>
+    const firstTask = (val,callback)=>{
+       setTimeout(()=>{
+        console.log("First Task is Done : "+val);
+        callback(val+2);
+       },1000);
+    }
+
+    const secondTask = (val,callback)=>{
+        setTimeout(()=>{
+            console.log("Second Task is Done : "+val);
+            callback(val+2);
+        },2000);
+    }
+
+    const thirdTask = (val)=>{
+        setTimeout(()=>{
+            console.log("Third Task is Done : "+val);
+        },1500);
+    }
+
+    // pyramid of Doom
+    firstTask(10,(n)=>{
+        secondTask(n,(secondResult)=>{
+           thirdTask(secondResult);
+        });
+    })
+</script>
