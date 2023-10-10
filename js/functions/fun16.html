@@ -3,7 +3,7 @@
       Error Callback :- 
         A callback function whose first argument is error
       
-      throw new Error();  
+      //throw new Error();  
     */
 
     function f1(a,b,callback){
@@ -16,14 +16,15 @@
       }
     }
 
-    f1(20,"11",function(err,result){
-        if(err)
-          console.error(err);
-        else{  
-         if(result%2==0)
-           document.write("<br> Even");
-         else
-          document.write("<br>Odd");
-        }    
-    });
+    const callbackFunction = function(err,result){
+      if(err)
+        console.error(err);
+      else{  
+       if(result%2==0)
+         document.write("<br> Even");
+       else
+        document.write("<br>Odd");
+      }    
+  };
+    f1(20,"11", callbackFunction);
 </script>
