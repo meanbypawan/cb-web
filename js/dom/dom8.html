@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <div>
+            <p>First paragraph</p>
+            <p>Second paragraph</p>
+            <p>Third paragrpah</p>
+        
+        </div>
+        <button onClick="f1()">First(Red)</button>
+        <button>Second(Blue)</button>
+        <button>Third(Green)</button>
+    
+        <script>
+            function f1(){
+                var firstPara = document.querySelector("div p:nth-child(1)");
+                firstPara.style.color='red';
+            }
+        </script>
+    </body>
+</html>

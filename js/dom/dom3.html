@@ -1,0 +1,24 @@
+<html>
+    <head></head>
+    <body>
+        <center> 
+          <img id="main" src="images/flower2.jpg" width="100px" height="100px"/>
+          <br/><br/>
+          <button onclick="incrementImageSize()">+</button>
+          <button onclick="decrementImageSize()">-</button>
+        </center>
+        <script>
+            function incrementImageSize(){
+               var mainImage = document.getElementById("main");
+               mainImage.width += 10;
+               mainImage.height+=10;
+            }
+
+            function decrementImageSize(){
+                var mainImage = document.getElementById("main");
+                mainImage.width -= 10;
+                mainImage.height-=10;
+            }
+        </script>
+    </body>
+</html>

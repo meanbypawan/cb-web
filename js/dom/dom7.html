@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <p>
+            <label>First number</label><br><br>
+            <input id="first" type="text"/>
+        </p>
+        <p>
+            <label>First number</label><br><br>
+            <input id="second" type="text"/>
+        </p>
+
+        <p>
+          <button onclick="operation('+')">Addition</button>
+          <button onclick="operation('-')">Subtration</button>
+          <button onclick="operation('*')">Multiplication</button>
+          <button onclick="operation('/')">Divistion</button>
+        </p>
+        <p id="result"></p>
+        <script>
+            function operation(operator){
+                var firstValue = document.querySelector("#first").value;
+                var secondValue = document.querySelector("#second").value;
+                var operationResult=0;
+
+                if(operator == '+')
+                  operationResult = firstValue*1 + secondValue*1;
+                else if(operator == '-')
+                  operationResult = firstValue - secondValue;
+                else if(operator == '*')
+                  operationResult = firstValue * secondValue;
+                else if(operator == '/')
+                  operationResult = firstValue / secondValue;  
+                  
+                document.querySelector("#result").innerHTML = "Result : "+operationResult;  
+            }
+        </script>
+    </body>
+</html>
