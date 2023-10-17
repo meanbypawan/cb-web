@@ -1,0 +1,9 @@
+e-shop :-
+
+User :-
+  sign up
+  sign in
+  manage cart
+  wish-list
+  place order
+  product search
