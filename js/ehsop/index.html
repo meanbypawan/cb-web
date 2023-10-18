@@ -12,6 +12,9 @@
 <body>
    <div id="main"></div>
    <script>
+    if(!localStorage.getItem("user-list"))
+      localStorage.setItem("user-list","[]");
+    
     setData(getData());
     createHeader();
     createCart(JSON.parse(localStorage.getItem("productList")));

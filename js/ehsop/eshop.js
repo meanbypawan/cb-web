@@ -34,8 +34,52 @@ function createHeader(){
    signInOption.setAttribute("class","text-white");
 
    var signUpOption = document.createElement("span");
-   signUpOption.innerText = "Sign in";
+   signUpOption.innerText = "Sign up";
    signUpOption.setAttribute("class","text-white ml-3");
+   signUpOption.setAttribute("style","cursor:pointer;");
+
+   // Applying click event on sign up
+   signUpOption.addEventListener("click",function(){
+
+      var cartContainer = document.getElementById("cart-container");
+      cartContainer.innerHTML = "";
+      
+      var rowDiv = document.createElement("div");
+      rowDiv.setAttribute("class","row d-flex justify-content-center align-items-center");
+      
+      var colDiv = document.createElement("div");
+      colDiv.setAttribute("class","col-md-4 border border-success");
+      colDiv.setAttribute("style","height:200px; margin-top:100px;");
+
+      var emailInput = document.createElement("input");
+      emailInput.setAttribute("class","form-control mt-3");
+      emailInput.setAttribute("type","text");
+      emailInput.setAttribute("placeholder","Enter email id");
+      emailInput.setAttribute("id","email");
+      colDiv.appendChild(emailInput);
+      
+      
+      var passwordInput = document.createElement("input");
+      passwordInput.setAttribute("class","form-control mt-3");
+      passwordInput.setAttribute("type","password");
+      passwordInput.setAttribute("placeholder","Enter password");
+      passwordInput.setAttribute("id","password");
+      colDiv.appendChild(passwordInput);
+
+      var signupButton = document.createElement("button");
+      signupButton.innerText = "Sign up";
+      signupButton.setAttribute("class","btn btn-secondary text-white mt-3");
+      colDiv.appendChild(signupButton);
+
+      signupButton.addEventListener("click",function(){
+          var email = document.querySelector("#email").value;
+          var password = document.querySelector("#password").value;
+          saveUser(email,password);
+      });
+
+      rowDiv.appendChild(colDiv);
+      cartContainer.appendChild(rowDiv);
+   }); 
 
    optionContainer.appendChild(signInOption);
    optionContainer.appendChild(signUpOption);
@@ -47,12 +91,13 @@ function createHeader(){
    headerContainer.appendChild(headerDivElement);
    mainDiv.appendChild(headerContainer);
 }
+
 function createCart(data){
   var mainDiv = document.querySelector("#main");
 
   var divContainer = document.createElement("div");
   divContainer.setAttribute("class","container");
-  
+  divContainer.setAttribute("id","cart-container");
   var rowDiv = document.createElement("div");
   rowDiv.setAttribute("class","row");
 
@@ -61,15 +106,59 @@ function createCart(data){
     cartContainer.setAttribute("class","col-md-4 p-3 mt-2");
     cartContainer.setAttribute("style","height:400px;");
     var cart = document.createElement("div");
-    cart.setAttribute("class","border border-success");
+    cart.setAttribute("class","border border-success d-flex flex-column align-items-center");
     cart.setAttribute("style","height:400px;");
+    
+    var imgElement = document.createElement("img");
+    imgElement.src = product.thumbnail;
+    imgElement.setAttribute("style","height:250px; width:100%;"); 
+    cart.appendChild(imgElement);
+    
+    var titleElement = document.createElement("h5");
+    titleElement.innerText = product.title; 
+    titleElement.setAttribute("class","text-center mt-2");
+    cart.appendChild(titleElement);
+
+    var priceElement = document.createElement("h4");
+    priceElement.innerText = product.price +" Rs."; 
+    priceElement.setAttribute("class","text-center text-success mt-2");
+    cart.appendChild(priceElement);
+
+    
+    var viewMoreElement = document.createElement("a");
+    viewMoreElement.setAttribute("class","text-center");
+    viewMoreElement.setAttribute("style","display:block;width:100%;");
+    viewMoreElement.setAttribute("href","#");
+    viewMoreElement.innerText = "View description";
+    cart.appendChild(viewMoreElement);
+
+    var addToCartElement = document.createElement("button");
+    addToCartElement.setAttribute("class","btn btn-warning");
+    addToCartElement.setAttribute("style","width:90%;color:white;");
+    addToCartElement.innerText = "Add To Cart";
+    cart.appendChild(addToCartElement);
 
     cartContainer.appendChild(cart);
+    
     rowDiv.appendChild(cartContainer); 
   }
   divContainer.appendChild(rowDiv);
 
   mainDiv.appendChild(divContainer);
+}
+
+function saveUser(email,password){
+  var userList = localStorage.getItem("user-list"); // []
+  userList = JSON.parse(userList);
+  let user = userList.find((user)=>{return user.email == email});
+  if(user)
+   window.alert("Email id already taken");
+  else{
+     let user = {email,password};
+     userList.push(user);
+     localStorage.setItem("user-list",JSON.stringify(userList));
+     window.alert("Sign up success...");
+  }
 }
 function setData(data){
    data = JSON.stringify(data);
