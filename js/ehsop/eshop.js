@@ -28,19 +28,59 @@ function createHeader(){
 
    var optionContainer = document.createElement("div");
    optionContainer.setAttribute("class","d-flex justify-content-center align-items-center col-md-3 border border-success h-100");
-   
+   if(!sessionStorage.getItem("isLoggedIn")){
    var signInOption = document.createElement("span");
    signInOption.innerText = "Sign in";
    signInOption.setAttribute("class","text-white");
-
+   signInOption.setAttribute("style","cursor:pointer;");
+   signInOption.addEventListener("click",async function(){
+      await cleanCart();
+      generateForm("Sign in");
+   });
    var signUpOption = document.createElement("span");
    signUpOption.innerText = "Sign up";
    signUpOption.setAttribute("class","text-white ml-3");
    signUpOption.setAttribute("style","cursor:pointer;");
 
    // Applying click event on sign up
-   signUpOption.addEventListener("click",function(){
+   signUpOption.addEventListener("click",async function(){
+     await cleanCart(); 
+     generateForm("Sign up");
+   }); 
 
+     optionContainer.appendChild(signInOption);
+     optionContainer.appendChild(signUpOption);
+  }
+  else{
+
+   var viewCartOption = document.createElement("span");
+   viewCartOption.innerText = "View cart";
+   viewCartOption.setAttribute("class","text-white ml-3");
+   viewCartOption.setAttribute("style","cursor:pointer;");
+   optionContainer.appendChild(viewCartOption);
+
+   var signOutOption = document.createElement("span");
+   signOutOption.innerText = "Sign out";
+   signOutOption.setAttribute("class","text-white ml-3");
+   signOutOption.setAttribute("style","cursor:pointer;");
+   optionContainer.appendChild(signOutOption);
+   
+   signOutOption.addEventListener("click",function(){
+      sessionStorage.removeItem("isLoggedIn");
+      document.querySelector("#main").innerHTML = "";
+      createHeader();
+      createCart(JSON.parse(localStorage.getItem("productList"))); 
+   });
+  }
+   headerDivElement.appendChild(divLogo);
+   headerDivElement.appendChild(searchInputContainer);
+   headerDivElement.appendChild(optionContainer);
+
+   headerContainer.appendChild(headerDivElement);
+   mainDiv.appendChild(headerContainer);
+}
+function generateForm(buttonText){
+   
       var cartContainer = document.getElementById("cart-container");
       cartContainer.innerHTML = "";
       
@@ -66,32 +106,38 @@ function createHeader(){
       passwordInput.setAttribute("id","password");
       colDiv.appendChild(passwordInput);
 
-      var signupButton = document.createElement("button");
-      signupButton.innerText = "Sign up";
-      signupButton.setAttribute("class","btn btn-secondary text-white mt-3");
-      colDiv.appendChild(signupButton);
+      var button = document.createElement("button");
+      button.innerText = buttonText;
+      button.setAttribute("class","btn btn-secondary text-white mt-3");
+      colDiv.appendChild(button);
 
-      signupButton.addEventListener("click",function(){
+      button.addEventListener("click",async function(){
           var email = document.querySelector("#email").value;
           var password = document.querySelector("#password").value;
-          saveUser(email,password);
+          if(buttonText == "Sign up"){
+            await cleanCart();
+            saveUser(email,password);
+          }  
+          else if(buttonText = "Sign in"){
+            let status = signInUser(email,password);
+            if(status){
+               await cleanCart();
+               document.querySelector("#main").innerHTML = "";
+               createHeader();
+               createCart(JSON.parse(localStorage.getItem("productList"))); 
+            }
+            else
+              window.alert("Invalid username and password");
+          }
+
       });
 
       rowDiv.appendChild(colDiv);
       cartContainer.appendChild(rowDiv);
-   }); 
-
-   optionContainer.appendChild(signInOption);
-   optionContainer.appendChild(signUpOption);
-
-   headerDivElement.appendChild(divLogo);
-   headerDivElement.appendChild(searchInputContainer);
-   headerDivElement.appendChild(optionContainer);
-
-   headerContainer.appendChild(headerDivElement);
-   mainDiv.appendChild(headerContainer);
 }
-
+async function cleanCart(){
+   document.querySelector("#cart-container").innerHTML = "";
+}
 function createCart(data){
   var mainDiv = document.querySelector("#main");
 
@@ -101,7 +147,7 @@ function createCart(data){
   var rowDiv = document.createElement("div");
   rowDiv.setAttribute("class","row");
 
-  for(var product of data){
+  for(let product of data){
     var cartContainer = document.createElement("div");
     cartContainer.setAttribute("class","col-md-4 p-3 mt-2");
     cartContainer.setAttribute("style","height:400px;");
@@ -130,6 +176,9 @@ function createCart(data){
     viewMoreElement.setAttribute("style","display:block;width:100%;");
     viewMoreElement.setAttribute("href","#");
     viewMoreElement.innerText = "View description";
+    viewMoreElement.addEventListener("click",function(){
+      viewProductDescriptionComponent(product);
+    });
     cart.appendChild(viewMoreElement);
 
     var addToCartElement = document.createElement("button");
@@ -146,7 +195,43 @@ function createCart(data){
 
   mainDiv.appendChild(divContainer);
 }
+function viewProductDescriptionComponent(product){
+  
+   let cartContainer = document.querySelector("#cart-container");
+   cartContainer.innerHTML = "";
+   
+   let rowDiv = document.createElement("div");
+   rowDiv.setAttribute("class","row mt-5");
 
+   let colDiv = document.createElement("div");
+   colDiv.setAttribute("class","col-md-6");
+   let imgElement = document.createElement("img");
+   imgElement.src = product.thumbnail;
+   imgElement.setAttribute("style","height:400px; width:100%;");
+   colDiv.appendChild(imgElement);
+   let imageArray = document.createElement("div");
+   for(let image of product.images){
+      let imgElement = document.createElement("img");
+      imgElement.src = image;
+      imgElement.setAttribute("style","height:100px; width:18%;");
+      imageArray.appendChild(imgElement);   
+   }
+   colDiv.appendChild(imageArray);
+   rowDiv.appendChild(colDiv);
+   cartContainer.appendChild(rowDiv);
+
+
+}
+function signInUser(email,password){
+   let userList = localStorage.getItem("user-list");
+   userList = JSON.parse(userList);
+   let user = userList.find((user)=>{return user.email == email && user.password == password});
+   if(user){
+    sessionStorage.setItem("isLoggedIn",true);
+    return true
+   } 
+   return false;
+}
 function saveUser(email,password){
   var userList = localStorage.getItem("user-list"); // []
   userList = JSON.parse(userList);
