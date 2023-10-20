@@ -18,6 +18,9 @@
     setData(getData());
     createHeader();
     createCart(JSON.parse(localStorage.getItem("productList")));
+    
+    if(!localStorage.getItem("cart-list"))
+      localStorage.setItem("cart-list","[]");
    </script>
 </body>
 </html>
