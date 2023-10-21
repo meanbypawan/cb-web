@@ -69,17 +69,90 @@ function createHeader(){
 
       let cartList = JSON.parse(localStorage.getItem("cart-list"));
 
+      let cartDiv =  document.createElement("div");
+      cartDiv.setAttribute("class","row mt-5");
+      
+      let tableDiv = document.createElement("div");
+      tableDiv.setAttribute("class","col-md-7");
+
+      let orderDiv = document.createElement("div");
+      orderDiv.setAttribute("class","col-md-4 offset-1 d-flex flex-column justify-content-center align-items-center");
+      orderDiv.setAttribute("style","height:150px; border: 1px solid black;");
+      
+      let h3 = document.createElement("h3");
+      h3.innerText = "Order summery";
+      
+      let totalItems = document.createElement("span");
+      totalItems.innerHTML = "Total Items : "+cartList.length;
+
+      let billAmount = document.createElement("span");
+      billAmount.innerHTML = "Total Bill : <label id='totalBillAmount' class='text-danger'>"+getBillAmount()+"</label>";
+
+      let buttonCheckout = document.createElement("button");
+      buttonCheckout.setAttribute("class","btn btn-secondary");
+      buttonCheckout.innerText = "Checkout";
+      buttonCheckout.setAttribute("style","width:90%;");
+      orderDiv.appendChild(h3);
+      orderDiv.appendChild(totalItems);
+      orderDiv.appendChild(billAmount);
+      orderDiv.appendChild(buttonCheckout);
+
       let table = document.createElement("table");
       table.setAttribute("class","table");
       let tableHeading = ["S.no","Title","Price","Qty"];
       let tr = document.createElement("tr");
       for(let heading of tableHeading){
-         let td = document.createElement("td");
-         td.innerText = heading;
-         tr.appendChild(td);
+         let th = document.createElement("th");
+         th.innerText = heading;
+         tr.appendChild(th);
       }
       table.appendChild(tr);
-      cartContainer.appendChild(table);
+      let i=1;
+      for(let cartItem of cartList){
+         let tr = document.createElement("tr");
+         let td = document.createElement("td");
+         td.innerText = ""+i;
+         tr.appendChild(td);
+         for(let key in cartItem){
+           console.log(cartItem[key]); 
+           if(key == "title"){
+            let td = document.createElement("td");
+            td.innerText = ""+cartItem[key];
+            tr.appendChild(td);
+           }
+           else if(key == "price"){
+            let td = document.createElement("td");
+            td.innerText = ""+cartItem[key];
+            tr.appendChild(td); 
+           }
+           else if(key == "qty"){
+            let td = document.createElement("td");
+            let qtyInput = document.createElement("input");
+            qtyInput.setAttribute("type","number");
+            qtyInput.setAttribute("style","width:50px;");
+            qtyInput.setAttribute("value",cartItem[key]);
+            qtyInput.addEventListener("change",function(){
+              let index = cartList.findIndex((obj)=>obj.id == cartItem.id);
+              let product = cartList[index];
+              cartList.splice(index,1);
+              product.qty = qtyInput.value;
+              cartList.splice(index,0,product);
+              localStorage.setItem("cart-list",JSON.stringify(cartList));
+              document.querySelector("#totalBillAmount").innerHTML = "Total Bill : "+getBillAmount(); 
+            });
+            td.appendChild(qtyInput);
+            tr.appendChild(td); 
+            
+           }
+         }
+         i++;
+         table.appendChild(tr);
+      }
+      
+      tableDiv.appendChild(table);
+      cartDiv.appendChild(tableDiv);
+      cartDiv.appendChild(orderDiv);
+      cartContainer.appendChild(cartDiv);
    });
    optionContainer.appendChild(viewCartOption);
 
@@ -102,6 +175,14 @@ function createHeader(){
 
    headerContainer.appendChild(headerDivElement);
    mainDiv.appendChild(headerContainer);
+}
+function getBillAmount(){
+   let cartList = JSON.parse(localStorage.getItem("cart-list"));
+   let totalBillAmount = 0;
+   for(let item of cartList){
+      totalBillAmount = totalBillAmount + (item.qty * item.price);
+   }
+   return totalBillAmount;
 }
 function generateForm(buttonText){
    
@@ -233,6 +314,7 @@ function saveProductInCart(product){
         window.alert("Product is already added in cart");  
       }
       else{
+        product.qty = 1; 
         cartList.push(product);
         localStorage.setItem("cart-list",JSON.stringify(cartList));
         window.alert("Product successfully added into cart");
