@@ -1,4 +1,17 @@
-function createHeader(){
+function search(keywords){
+   let productList = localStorage.getItem("productList");
+   productList = JSON.parse(productList);
+
+   let searchResult = productList.filter((product)=>product.title.toLowerCase().includes(keywords.toLowerCase()));
+
+   if(keywords.length==0){
+     searchResult = productList;
+   }
+   document.querySelector("#main").innerHTML = "";
+   createHeader(keywords);
+   createCart(searchResult);  
+}
+function createHeader(searchInputData){
    var mainDiv = document.querySelector("#main");
 
    var headerContainer = document.createElement("div");
@@ -28,7 +41,12 @@ function createHeader(){
    searchInput.setAttribute("type","text");
    searchInput.setAttribute("placeholder","Search product");
    searchInput.setAttribute("style","width:80%;padding:5px; height:40px;");
-  
+   searchInput.value  = searchInputData ?  searchInputData: "";
+   searchInput.focus();
+
+   searchInput.addEventListener("keyup",function(){
+      search(searchInput.value);
+   });
    searchInputContainer.appendChild(searchInput);
 
    var optionContainer = document.createElement("div");
@@ -77,7 +95,7 @@ function createHeader(){
 
       let orderDiv = document.createElement("div");
       orderDiv.setAttribute("class","col-md-4 offset-1 d-flex flex-column justify-content-center align-items-center");
-      orderDiv.setAttribute("style","height:150px; border: 1px solid black;");
+      orderDiv.setAttribute("style","height:fit-content; border: 1px solid black;");
       
       let h3 = document.createElement("h3");
       h3.innerText = "Order summery";
@@ -92,6 +110,9 @@ function createHeader(){
       buttonCheckout.setAttribute("class","btn btn-secondary");
       buttonCheckout.innerText = "Checkout";
       buttonCheckout.setAttribute("style","width:90%;");
+      buttonCheckout.addEventListener("click",function(){
+         orderComponent(orderDiv);
+      });
       orderDiv.appendChild(h3);
       orderDiv.appendChild(totalItems);
       orderDiv.appendChild(billAmount);
@@ -142,7 +163,6 @@ function createHeader(){
             });
             td.appendChild(qtyInput);
             tr.appendChild(td); 
-            
            }
          }
          i++;
@@ -175,6 +195,91 @@ function createHeader(){
 
    headerContainer.appendChild(headerDivElement);
    mainDiv.appendChild(headerContainer);
+}
+
+function orderComponent(orderDiv){
+   var formElementDiv = document.createElement("div");
+   formElementDiv.setAttribute("class","col-md-12 mt-3");
+
+   var inputDiv = document.createElement("div");
+   inputDiv.setAttribute("class","form-group");
+   
+   var personNameInput = document.createElement("input");
+   personNameInput.setAttribute("class","form-control mt-1");
+   personNameInput.setAttribute("placeholder","Enter person name");
+   
+   personNameInput.addEventListener("keyup",function(){
+      let name = personNameInput.value;
+      if(name.length!=0){
+        personNameError.classList.add("d-none");
+      }  
+   });
+
+   var personNameError = document.createElement("small");
+   personNameError.innerText = "please enter valid name";
+   personNameError.setAttribute("class","text-danger d-none");
+   inputDiv.appendChild(personNameInput);
+   inputDiv.appendChild(personNameError);
+
+   var personContactInput = document.createElement("input");
+   personContactInput.setAttribute("class","form-control mt-1");
+   personContactInput.setAttribute("placeholder","Enter contact number");
+   inputDiv.appendChild(personContactInput);
+   
+   var contactError = document.createElement("small");
+   contactError.innerText = "please enter valid contact number";
+   contactError.setAttribute("class","text-danger d-none");
+   personContactInput.addEventListener("keyup",function(){
+     let contactNumber = personContactInput.value;
+     if(contactNumber.length==10 && isNaN(contactNumber) == false){
+        contactError.classList.add("d-none");
+     }
+   });
+
+   inputDiv.appendChild(contactError); 
+   
+
+   var deliveryAddress = document.createElement("input");
+   deliveryAddress.setAttribute("class","form-control mt-1");
+   deliveryAddress.setAttribute("placeholder","Enter delivery address");
+   inputDiv.appendChild(deliveryAddress);
+   
+   var addressError = document.createElement("small");
+   addressError.setAttribute("class","text-danger d-none");
+   addressError.innerText = "please enter valid address";
+   inputDiv.appendChild(addressError);
+   
+   deliveryAddress.addEventListener("keyup",function(){
+     let address = deliveryAddress.value;
+     if(address.length!=0){
+      addressError.classList.add("d-none");
+     }
+   });
+
+   var placeOrderButton = document.createElement("button");
+   placeOrderButton.setAttribute("class","btn btn-outline-secondary mt-1 w-100");
+   placeOrderButton.innerText = "PLACE ORDER";
+
+   placeOrderButton.addEventListener("click",function(){
+     let personName = personContactInput.value;
+     let contactNumber = personContactInput.value;
+     let address = deliveryAddress.value;
+     
+     if(personName.length==0){
+       personNameError.classList.remove("d-none");
+     }
+     if(contactNumber.length == 0 || isNaN(contactNumber)){
+      contactError.classList.remove("d-none");
+     }
+     if(address.length == 0){
+      addressError.classList.remove("d-none");
+     }
+   });
+
+   inputDiv.appendChild(placeOrderButton);
+
+   formElementDiv.appendChild(inputDiv);
+   orderDiv.appendChild(formElementDiv);
 }
 function getBillAmount(){
    let cartList = JSON.parse(localStorage.getItem("cart-list"));
