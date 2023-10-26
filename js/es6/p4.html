@@ -1,0 +1,31 @@
+<script>
+    /*
+     Inheritance :-
+        By using existing thing , to develop something new but there should not be
+        anychanges in existing thing.
+
+
+     J5 (recevingCall(), rejectingCall) : 10000
+
+     J7 (rececingCall(), rejectingCall(), camera()) : 25000
+    */
+    class J5{
+        recevingCall(){
+            document.write("<br>Call received....");
+        }
+        rejectingCall(){
+            document.write("<br>Call rejected.....");
+        }
+    }
+    
+    class J7 extends J5{
+       camera(){
+         document.write("<br>Photo is clicked...");
+       }
+    }
+    
+    let j7 = new J7();
+    j7.recevingCall();
+    j7.rejectingCall();
+    j7.camera();
+</script>

@@ -1,0 +1,41 @@
+<script>
+    /*
+      Object :- 
+
+      customer :
+        properties : id,cname,age
+        behaviours : withdrawal(), depostite(), balanceEnquiry()
+      ------------------
+
+      1. {}
+      2. function Customer(id,cname,age){
+            this.id = id;
+            this.cname = cname;
+            this.age = age;
+            this.withdrawal = function(){}
+            this.deposite = function(){}
+            this.balanceEnquiry = function(){}
+
+         }
+
+         let obj = new Customer(100, "ABC", 25);
+         obj.withd();
+      
+      3. class
+    */
+    class Customer{
+      constructor(id,cname,age){
+        this.id = id;
+        this.cname = cname;
+        this.age = age;
+        
+      }
+
+      showDetails(){
+        document.write(this.id+"  "+this.cname+" "+this.age);
+      }
+      
+    }
+
+    let obj = new Customer(100,"ABC",25); // obj : id:100,cname:"ABC",age:25
+</script>

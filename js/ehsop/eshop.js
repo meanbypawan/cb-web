@@ -7,8 +7,7 @@ function search(keywords){
    if(keywords.length==0){
      searchResult = productList;
    }
-   document.querySelector("#main").innerHTML = "";
-   createHeader(keywords);
+   document.querySelector("#cart-container").remove();
    createCart(searchResult);  
 }
 function createHeader(searchInputData){
@@ -22,7 +21,7 @@ function createHeader(searchInputData){
    headerDivElement.setAttribute("class","bg-dark row");
    
    var divLogo = document.createElement("div");
-   divLogo.setAttribute("class","col-md-3  border border-danger h-100");
+   divLogo.setAttribute("class","col-md-3 h-100");
   
    var h1 = document.createElement("h1");
    h1.innerHTML = "<span class='text-success'>e</span>-shop";
@@ -35,7 +34,7 @@ function createHeader(searchInputData){
    divLogo.appendChild(h1);
 
    var searchInputContainer = document.createElement("div");
-   searchInputContainer.setAttribute("class","d-flex align-items-center justify-content-center col-md-6 h-100 border border-primary");
+   searchInputContainer.setAttribute("class","d-flex align-items-center justify-content-center col-md-6 h-100");
 
    var searchInput = document.createElement("input");
    searchInput.setAttribute("type","text");
@@ -50,7 +49,7 @@ function createHeader(searchInputData){
    searchInputContainer.appendChild(searchInput);
 
    var optionContainer = document.createElement("div");
-   optionContainer.setAttribute("class","d-flex justify-content-center align-items-center col-md-3 border border-success h-100");
+   optionContainer.setAttribute("class","d-flex justify-content-center align-items-center col-md-3 h-100");
    if(!sessionStorage.getItem("isLoggedIn")){
    var signInOption = document.createElement("span");
    signInOption.innerText = "Sign in";
@@ -362,7 +361,7 @@ function createCart(data){
     cartContainer.setAttribute("class","col-md-4 p-3 mt-2");
     cartContainer.setAttribute("style","height:400px;");
     var cart = document.createElement("div");
-    cart.setAttribute("class","border border-success d-flex flex-column align-items-center");
+    cart.setAttribute("class","d-flex flex-column align-items-center");
     cart.setAttribute("style","height:400px;");
     
     var imgElement = document.createElement("img");
