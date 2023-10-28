@@ -1,0 +1,29 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+   <button onclick="sendRequest()">Send AJAX Request</button>
+
+    <script>
+        function sendRequest(){
+            var xhttp = new XMLHttpRequest();
+            var api = "https://dummyjson.com/products?limit=100";
+            xhttp.open("GET", api, true);
+            //xhttp.post("POST",api,true)
+            xhttp.send("username=323232&email=343434344");
+    
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4) {
+                    window.alert(xhttp.responseText);
+                    console.log(xhttp.responseText);
+                }
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

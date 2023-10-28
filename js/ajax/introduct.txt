@@ -1,0 +1,71 @@
+AJAX :- Asynchronous Javascript And XML
+
+
+Client Appl--------XMLHttpRequest------------SererApplication
+
+Steps :-
+ 1. crate XMLttpRequest Object
+    var xhttp = new XMLHttpRequest();
+ 
+ 2. open the request
+    xhttp.open("GET","API_URL",true);
+
+3.  Send the request
+    xhttp.send();
+-----------------------------------------------------
+    xhttp
+     properties :- 
+       status :- 200, 201,
+       401, 403, 404
+       500
+       readyState (0,1,2,3,4)
+        0 :- connection not established
+        1 :- connection establisjed
+        2 :- request is received
+        3 :-  request under process
+        4 :- request process and response ready to send
+       responseText
+     behavours :- onreadyStateChange = function(){}
+
+    Server Side        
+     a. connectio established
+     b. Request received
+     c. Request process
+     d. Response ready to send
+---------------------------------------------------
+Get / Process response at client -side
+  xhttp.onreadyStateChange = function(){
+    if(xhttp.readyState == 4){
+        // process the response
+    }
+  }
+
+-------------------------------------------------------
+request
+ Http (Hypertext transfer protocol/ stateless protocol)
+ Httprequest
+  GET   
+    a. it is used to get the data from the server
+    b. you can send the data by using get also but data will exposed in url
+    c. data sent inot the query parameter
+    d. less secure
+    e. can carry little amount data
+    f. not suiltable for binary data/ file
+  POST
+   a. if you send the data to server
+   b. Data will not be exposed in url
+   c. data sent inot the rquest body
+   d. higher secure then get
+   e. can be send large amount of data
+   f. only post will work in case of file sending
+
+
+  PUT :- partial
+  DELETE
+  PATCH
+  .
+  .
+  .
+
+
+
