@@ -1,0 +1,128 @@
+nodejs :- It is javascript runtime enviornment
+   v8-engine
+
+   nodejs:--    c/c++(v8-engine) :-- node.cpp
+
+   test.js
+   console.log("Hello node");
+
+   node test.js :-- Hello node
+   ------------------------------------------------------
+   events
+   fs
+   http
+   url
+   path
+   ......
+   ......
+   Dependency/module
+
+   a. Application Level Dependency
+       aa. Default (event,fs,http,url,path...)
+
+       bb. Installable(express, body-parser, mysql, sequleize...)
+        
+           npm install mysql 
+
+   b. Global Level/Enviornment Level Dependency  
+      @angular/cli
+      nodemon
+      express-generator
+
+      npm install -g nodemon
+ ---------------------------------
+   Installing dependecny
+      npm install mysql
+
+   Installing package.json   
+     npm install
+
+------------------------------------------
+Module :- Module is a javascript file
+
+DemoApplication:-
+ |-->A.js (class, function, variable, object, array-object)
+ |-->B.js
+
+
+ Import and Export 
+
+ default export -----> Default import
+ named export -------> named import
+------------------------------------
+m1.js
+ let x = 100;
+
+t1.js
+  
+--------------------------------------------------------------------
+
+ReactJS :-
+  1. It is javascript library / Framwork
+  2. It is used to develop Single Page Application
+  3. It uses component based architecture
+      a. statefull component / class component 
+      b. stateless component / functional component
+
+      Before :- 16.8
+
+      From 16.8
+         function Component + Hooks = statefull component
+         useState()
+         useReducer()
+         useNavigate()
+         useSelector()
+         useDispatch()
+         useLocation()
+         useMemo()
+         useCallback()
+         ..................
+   4. Each and Every React application has one component by default
+      called Root component (App component)     
+
+      App.js
+       Header.js
+       Navigation.js
+       MainContent.js
+          |---LeftPanel.js
+          |---MidPanel.js
+          |---RightPanel.js
+       Footer.js
+
+   5. index.html-------index.js---------App.js
+   
+   JSX :-- HTML
+   import Header from "Header.js";
+   
+   <div>
+     <Header/>
+   </div>
+-------------------------------------------------------
+      a. ReactJs
+          Virtual DOM:-
+      b. Angular 
+          aa. AngularJS
+          bb. Angular >=2 (Typescript = ES5 + ES6)
+
+          Js :- let x = 100
+          Ts :  let x:number = 100
+                let a:any = "hello";
+      c. Actual DOM / Real DOM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
