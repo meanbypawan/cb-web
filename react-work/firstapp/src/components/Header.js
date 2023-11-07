@@ -6,9 +6,6 @@ export default class Header extends Component{
         return <>
           <h1 className="text-warning">Header Component....</h1> 
           <HeaderLogo/>
-                    
-
-
         </>
     }
 }

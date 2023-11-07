@@ -1,0 +1,17 @@
+<html>
+    <body>
+       <div>
+        <button id="first">First Button</button>
+        <button id="second">Second Button</button>
+       </div> 
+        <script>
+             document.getElementById("first").addEventListener("click",function(){
+                console.log(this);
+             });
+
+             document.getElementById("second").addEventListener("click",()=>{
+                console.log(this);
+             });
+        </script>
+    </body>
+</html>
