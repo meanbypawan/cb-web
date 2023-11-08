@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import CounterComponent from "./components/CounterComponent";
 import Test from "./components/Test";
 import List from "./components/List";
+import TableComponent from "./components/TableComponent";
+import ControlledComponent from "./components/ControlledComponent";
 
 class App extends Component{
   constructor(){
@@ -19,8 +21,9 @@ class App extends Component{
       <CounterComponent/> 
       <Test/>
       */}
-      <List/>
-      
+      {/* <List/> */}
+      {/* <TableComponent/> */}
+      <ControlledComponent/>
     </div>
   }
 }
