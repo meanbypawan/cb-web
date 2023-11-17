@@ -3,7 +3,6 @@ import { Component } from "react";
 export default class List extends Component{
     render(){
         let colorList = ["Red","Blue","Green","Pink","Yellow","Black"];
-        
         return <>
           <h1>List Component</h1>
           <hr/>
