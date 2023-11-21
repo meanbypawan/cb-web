@@ -1,6 +1,6 @@
-export default function StudenTable(){
+export default function StudenTable({studentList,activeBranch}){
     return <>
-     <table className="table">
+      <table className="table">
         <thead>
             <tr>
                 <th>Id</th>
